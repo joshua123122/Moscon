@@ -1,0 +1,49 @@
+trigger.addHelper('store', function(bot, args, done) {
+    userStore.get(args.message.author, function(data) {
+        done(data);
+    });
+})
+.do(function(bot, conf, args) {
+    this.store // will contain the data fetched above 
+});
+import discord # pip install discord.py
+
+client = discord.Client()
+client.login('username', 'password')
+
+@client.event
+def on_message(message):
+    if message.content.casefold().startswith("!echo".casefold()):
+        client.send_message(message.channel, "You said: {}".format(message.content.lstrip("!echo ")))
+    if message.content.casefold() == "!ping".casefold():
+        client.send_message(message.channel, "Pong!")
+    if message.content.casefold() == "!createinvite".casefold():
+        invite = client.create_invite(destination = message.channel, xkcd = True, max_uses = 1)
+        if invite is not None:
+            client.send_message(message.channel, "Invite is:\n{}\nThe invite can only be used once.".format(invite.url))
+        else:
+            client.send_message(message.channel, "Unable to create invite. Sorry for the inconvenience.")
+
+@client.event
+def on_message_edit(before, after):
+    if after.content:
+        send_to_bot_channel('**{}** in channel `#{}` edited their message:\nFrom: {}\nTo: {}'.format(after.author.name, after.channel.name, before.content, after.content))
+
+@client.event
+def on_message_delete(message):
+    if message.content:
+        send_to_bot_channel('{} in channel `#{}` has deleted a message:\n{}'.format(message.author.name, message.channel.name, message.content))
+
+@client.event
+def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+
+def send_to_bot_channel(content):
+    for server in client.servers:
+        for channel in server.channels:
+            if channel.name.casefold() == "chat-bot".casefold():
+                client.send_message(channel, content)
+
+client.run()
