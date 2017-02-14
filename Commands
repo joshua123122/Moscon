@@ -1,8 +1,0 @@
-trigger.addHelper('store', function(bot, args, done) {
-    userStore.get(args.message.author, function(data) {
-        done(data);
-    });
-})
-.do(function(bot, conf, args) {
-    this.store // will contain the data fetched above 
-});
