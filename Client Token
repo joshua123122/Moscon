@@ -1,0 +1,11 @@
+import {Moscon} from './Moscon';
+5	
+6	interface Config {
+7	    token: string;
+8	}
+9	
+10	const bot: Discord.Client = new Discord.Client(281183255426760706);
+…	
+18	bot.on('message', (msg) => {
+19	    if (msg.isMentioned(bot.user.id)) {
+20	        msg.channel.sendMessage(moscon.runCode(moscon.parseMessage(msg.content)));
