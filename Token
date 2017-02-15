@@ -1,0 +1,4 @@
+cd discord_Moscon_bot
+	export DISCORD_BOT_TOKEN="MjgxMTgzMjU1NDI2NzYwNzA2.C4Y64A.cB0aeNuzCGj9WFM2dOLJNWcQn5M"   
+  mix deps.get
+14	iex -S mix
