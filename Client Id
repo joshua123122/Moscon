@@ -1,1 +1,8 @@
-{"client_id": ["281183255426760706"]}
+{
+  "id": "281183255426760706",
+  "name": "Moscon",
+  "description": "Moscon is a bot that can play music do special commands and also rank people. It will also manage groups. Atlantic energy will be the group it will manage when i'm offline.",
+  "icon": null,
+  "secret": "MjgxMTgzMjU1NDI2NzYwNzA2.C5-Cwg.NnV7S3dF0ubDilJxN3QKhG7cW_Q",
+  "redirect_uris": ["http://localhost:5000/callback"],
+}
