@@ -159,7 +159,7 @@ def main():
 
         m = None
         try:
-            from musicbot import MusicBot
+            from Moscon import Moscon
             m = MusicBot()
             print("Connecting...", end='', flush=True)
             m.run()
