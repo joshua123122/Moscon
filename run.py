@@ -160,7 +160,7 @@ def main():
         m = None
         try:
             from Moscon import Moscon
-            m = MusicBot()
+            m = Moscon()
             print("Connecting...", end='', flush=True)
             m.run()
 
