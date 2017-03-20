@@ -1,5 +1,10 @@
-_ = require 'underscore'
-2	
-3	module.exports.init = ->
-4	    botData.online = []
-5	    addUser = (Moscon) ->
+_ = require 'underscore'	
+	module.exports.init = ->
+	    botData.online = []
+	    addUser = (Moscon) ->
+
+	        (/onlinelist/.test msg.text) && !msg.old
+    ,
+	    (event) ->
+	        botCommand.say JSON.stringify botData.online
+        return
