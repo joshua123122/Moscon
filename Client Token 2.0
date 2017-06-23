@@ -9,3 +9,4 @@ import {Moscon} from './Moscon';
 18	bot.on('message', (msg) => {
 19	    if (msg.isMentioned(bot.user.id)) {
 20	        msg.channel.sendMessage(moscon.runCode(moscon.parseMessage(msg.content)));
+      DO not Read
